@@ -194,7 +194,7 @@ function App({ children }) {
     }
     return (
         <ThemeProvider theme={outerTheme}>
-            <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'flex', height: "100vh", width: "100vw" }}>
                 <CssBaseline />
 
                 <AppBar position="fixed" open={open}>
@@ -466,7 +466,7 @@ function App({ children }) {
 
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 2,border:2, }}>
+                <Box component="main" sx={{ flexGrow: 1, p: 2,border:2, width: "100%", height:"100%" }}>
                     <DrawerHeader />
                     <Grid pl={open ? 30 : 6}>
                             <Grid container md={12} sx={{ border: 1, borderColor: 'red',width:'100%' }}>
