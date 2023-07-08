@@ -14,7 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Menu, MenuItem, Tooltip, Avatar, Grid, createTheme, Button } from '@mui/material';
+import { Menu, MenuItem, Tooltip, Avatar, Grid, createTheme, Button, Paper } from '@mui/material';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
@@ -30,6 +30,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { orange } from "@mui/material/colors";
 import { ThemeProvider } from "@mui/system";
 import { HolidayVillage, LocationCity } from "@mui/icons-material";
+import { CustomButton } from "./components/CustomButton";
+
 
 
 
@@ -88,19 +90,19 @@ export const AppBar = styled(MuiAppBar, {
 }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: 'nowrap',
-        boxSizing: 'border-box',
-        ...(open && {
-            ...openedMixin(theme),
-            '& .MuiDrawer-paper': openedMixin(theme),
-        }),
-        ...(!open && {
-            ...closedMixin(theme),
-            '& .MuiDrawer-paper': closedMixin(theme),
-        }),
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    ...(open && {
+        ...openedMixin(theme),
+        '& .MuiDrawer-paper': openedMixin(theme),
     }),
+    ...(!open && {
+        ...closedMixin(theme),
+        '& .MuiDrawer-paper': closedMixin(theme),
+    }),
+}),
 );
 
 // import type {} from '@mui/x-date-pickers/themeAugmentation';
@@ -156,6 +158,7 @@ const outerTheme = createTheme({
     },
 });
 
+// react app
 
 function App({ children }) {
 
@@ -463,16 +466,25 @@ function App({ children }) {
 
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 2 }}>
+                <Box component="main" sx={{ flexGrow: 1, p: 2,border:2, }}>
                     <DrawerHeader />
                     <Grid pl={open ? 30 : 6}>
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            {children} { /* iteswm hewr */ }
+                            <Grid container md={12} sx={{ border: 1, borderColor: 'red',width:'100%' }}>
+                                <Grid item md={8}>
+                                    <Paper sx={{ width: '180px', height: '40px',bgcolor:'red',display:'flex',alignItems:'center',m:1,pl:1}}>
+                                        <Typography>No Nurse Action</Typography>
+                                    </Paper>
 
-                            <Button>Code here!!</Button>
-                            <Button variant="contained">Hahah</Button>
+                                </Grid>
+                                <Grid md={4} item>
 
-                        </LocalizationProvider>
+                                    <Paper sx={{ width: '120px', height: '40px',bgcolor:'blue',pl:0,pr:0.5,mt:1,mr:0,ml:0,display:'flex',alignItems:'center' }}>
+                                        <Typography>1 200 000 000</Typography>
+                                    </Paper>
+
+                                </Grid>
+
+                            </Grid>
                     </Grid>
                 </Box>
             </Box>
