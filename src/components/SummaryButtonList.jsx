@@ -20,7 +20,7 @@ export function SummaryButtonList() {
     };
 
     return (
-        <Box sx={{ bgcolor: 'background.paper', border:1,borderColor:'divider' }}>
+        <Box sx={{ bgcolor: 'background.paper', border:0,borderColor:'divider' }}>
             <nav aria-label="main mailbox folders">
                 <List sx={{}}>
                     {case_status.map((status, index) => {

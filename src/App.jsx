@@ -42,6 +42,7 @@ import { SummaryButtonList } from "./components/SummaryButtonList";
 import { CustomCaseStatusAppBar } from "./components/CustomCaseStatusAppBar";
 import { StatisticsAppBar } from "./components/StatisticsAppBar";
 import { WeeklyChart } from "./components/WeeklyChart";
+import { LeadTime } from "./components/LeadTime";
 
 
 
@@ -503,6 +504,7 @@ function App({ children }) {
                                 <Box sx={{ border: 0, borderColor: "divider", width: '100%' }}>
                                     <StatisticsAppBar></StatisticsAppBar>
                                     <WeeklyChart></WeeklyChart>
+                                    <LeadTime></LeadTime>
 
                                 </Box>
 

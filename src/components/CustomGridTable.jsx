@@ -35,7 +35,7 @@ export function CustomGridTable() {
             display: 'none',
           },
           '.MuiDataGrid-columnHeaders': {
-            backgroundColor: '#9ad29c'
+            backgroundColor: 'lightgrey'
           },
           '.MuiDataGrid-columnHeaderTitle': {
             fontSize: 14,
