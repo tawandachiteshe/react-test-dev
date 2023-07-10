@@ -31,12 +31,19 @@ import { orange } from "@mui/material/colors";
 import { ThemeProvider } from "@mui/system";
 import { HolidayVillage, LocationCity } from "@mui/icons-material";
 import { CustomButton } from "./components/CustomButton";
+import { BasicTabs } from "./components/BasicTabs";
 
 
 
 
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
+import { SummaryButtonList } from "./components/SummaryButtonList";
+import { CustomCaseStatusAppBar } from "./components/CustomCaseStatusAppBar";
+import { StatisticsAppBar } from "./components/StatisticsAppBar";
+import { WeeklyChart } from "./components/WeeklyChart";
+import { LeadTime } from "./components/LeadTime";
+
 
 
 
@@ -161,6 +168,11 @@ const outerTheme = createTheme({
 // react app
 
 function App({ children }) {
+
+    const case_status = ['New', 'Review', 'Booked', 'Published', 'Completed', 'Urgent', 'Pending', 'Deffered', 'No Show', 'NoNurseAction', 'NotPublished', 'Total']
+
+
+
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -466,25 +478,44 @@ function App({ children }) {
 
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 2,border:2, width: "100%", height:"100%" }}>
+                <Box component="main" sx={{ flexGrow: 1, p: 2, border: 0, width: "100%", height: "100%" }}>
                     <DrawerHeader />
-                    <Grid pl={open ? 30 : 6}>
-                            <Grid container md={12} sx={{ border: 1, borderColor: 'red',width:'100%' }}>
-                                <Grid item md={8}>
-                                    <Paper sx={{ width: '180px', height: '40px',bgcolor:'red',display:'flex',alignItems:'center',m:1,pl:1}}>
-                                        <Typography>No Nurse Action</Typography>
-                                    </Paper>
+                    <Grid pl={open ? 6 : 6}>
 
+
+                        {/** Nigel code from here */}
+
+                        <Grid container>
+                            <Grid container md={3} sx={{ border: 0, borderColor: '' }}>
+                                <Grid item md={12}>
+                                    <CustomCaseStatusAppBar></CustomCaseStatusAppBar>
                                 </Grid>
-                                <Grid md={4} item>
-
-                                    <Paper sx={{ width: '120px', height: '40px',bgcolor:'blue',pl:0,pr:0.5,mt:1,mr:0,ml:0,display:'flex',alignItems:'center' }}>
-                                        <Typography>1 200 000 000</Typography>
-                                    </Paper>
-
+                                <Grid item md={12} sx={{ border: 0 }} >
+                                    <SummaryButtonList></SummaryButtonList>
                                 </Grid>
+                            </Grid>
+
+                            <Grid container md={6} ml={0}>
+                                <BasicTabs></BasicTabs>
+                            </Grid>
+
+
+                            <Grid container md={3} ml={0}>
+                                <Box sx={{ border: 0, borderColor: "divider", width: '100%' }}>
+                                    <StatisticsAppBar></StatisticsAppBar>
+                                    <WeeklyChart></WeeklyChart>
+                                    <LeadTime></LeadTime>
+
+                                </Box>
 
                             </Grid>
+
+                        </Grid>
+
+                        {/** Nigel code ends here */}
+
+
+
                     </Grid>
                 </Box>
             </Box>
